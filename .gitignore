@@ -1,0 +1,42 @@
+node_modules/
+dist/
+.npm-cache/
+.env
+.env.*
+!.env.example
+*.tgz
+npm-debug.log*
+coverage/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+local-test/
+local-dev/
+/.kint-origin/
+
+# ドメイン用の取得物・生成物（対象ドメインのフォルダで管理）
+/data/
+/html/
+/push/
+
+# 開発用の正本・共有設定は追跡する。端末固有設定と生成リンクだけを除外する。
+/.agents/*
+!/.agents/dev-config.json
+!/.agents/generated.json
+!/.agents/skills/
+/.agents/skills/kint-origin-addon-*/
+!/.agents/roles/
+/.claude/*
+!/.claude/settings.json
+!/.claude/agents/
+/.claude/skills/
+/.codex/*
+!/.codex/agents/
+/.cursor/*
+!/.cursor/agents/
+
+# 個人設定・ログ・エージェントの一時状態
+/log/
+**/settings.local.json
+debug.log

@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "skills": [
+    "kint-origin-development",
+    "kint-origin-validation",
+    "kint-origin-agent-config"
+  ],
+  "roles": []
+}

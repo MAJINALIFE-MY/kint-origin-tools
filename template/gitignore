@@ -1,0 +1,44 @@
+# 認証情報・対象ドメインを含む .env と、API応答本文を含むローカル実行ログはコミットしない
+# BEGIN kint-origin pull safety
+.env
+/log/
+.env.kint-origin-all.lock
+.env.kint-origin-all.*.tmp
+data/kintone/index/.bulk-source.json
+captures/kintone-common/
+# END kint-origin pull safety
+.DS_Store
+Thumbs.db
+
+# BEGIN kint-origin addons
+/.kint-origin/addons/
+/.agents/skills/kint-origin-addon-*
+/.claude/skills/kint-origin-addon-*
+/.cursor/rules/kint-origin-addon-*
+# END kint-origin addons
+
+# レコード取得用
+records.csv
+records/attachments/
+**/.kint-origin-generated-name.json
+**/records/.kint-origin-records-schema.json
+**/records/.kint-origin-records.lock
+**/records/.kint-origin-records-stage-*/
+**/records/.kint-origin-record-stage-*/
+
+# HTMLビューアのレコードデータ（records.csv 由来。HTML 本体はコミット可）
+*.records.js
+
+# HTMLビューアの置換中ステージ・ロック・旧版退避
+/html.kint-origin-lock
+/html.kint-origin-stage-*/
+/html.kint-origin-old-*/
+
+# レコード操作ジョブの実行記録（プレビュー・バックアップ・添付・結果。顧客データを含む）
+push/records/*/runs/
+
+# 更新キー付き CSV 取込の実行記録（プレビュー・バックアップ・結果。顧客データを含む）
+push/import/*/runs/
+
+# フォーム変更の確認用CSVとレポート（取得レコードを含む）
+/push/rehearsal/

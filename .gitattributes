@@ -1,0 +1,5 @@
+# 改行は LF 固定（Windows の autocrlf による差分ノイズ防止）。
+* text=auto eol=lf
+
+# 開発元の変更履歴。git archive の公開スナップショットには入れない。
+CHANGELOG.md export-ignore

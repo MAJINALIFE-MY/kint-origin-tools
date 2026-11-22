@@ -1,0 +1,102 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd:*)",
+      "Bash(ls:*)",
+      "Bash(pwd)",
+      "Bash(cat:*)",
+      "Bash(grep:*)",
+      "Bash(rg:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(wc:*)",
+      "Bash(tree:*)",
+      "Bash(stat:*)",
+      "Bash(file:*)",
+      "Bash(uniq:*)",
+      "Bash(cut:*)",
+      "Bash(diff:*)",
+      "Bash(which:*)",
+      "Bash(dirname:*)",
+      "Bash(basename:*)",
+      "Bash(git status:*)",
+      "Bash(git log:*)",
+      "Bash(git diff:*)",
+      "Bash(git show:*)",
+      "PowerShell(Get-Content:*)",
+      "PowerShell(Get-ChildItem:*)",
+      "PowerShell(Get-Item:*)",
+      "PowerShell(Get-ItemProperty:*)",
+      "PowerShell(Test-Path:*)",
+      "PowerShell(Get-Location)",
+      "PowerShell(Resolve-Path:*)",
+      "PowerShell(Select-String:*)",
+      "PowerShell(Select-Object:*)",
+      "PowerShell(Where-Object:*)",
+      "PowerShell(Measure-Object:*)",
+      "PowerShell(Sort-Object:*)",
+      "PowerShell(Format-Table:*)",
+      "PowerShell(Format-List:*)",
+      "PowerShell(ConvertFrom-Json:*)",
+      "PowerShell(git status:*)",
+      "PowerShell(git log:*)",
+      "PowerShell(git diff:*)",
+      "Edit(data/**/_agentdata/**)",
+      "Edit(data/kintone/plugin/**)",
+      "Edit(push/**)",
+      "Edit(favorites/**)",
+      "Edit(data/**/form/fields.json)",
+      "Edit(data/**/form/layout.json)",
+      "Edit(data/**/views/views.json)",
+      "Edit(data/**/reports/reports.json)",
+      "Edit(data/**/app_settings/**)",
+      "Edit(data/**/notifications/**)",
+      "Edit(data/**/acl/**)",
+      "Edit(data/**/customize/customize-manifest.json)",
+      "Edit(data/**/customize/desktop/**)",
+      "Edit(data/**/customize/mobile/**)",
+      "Edit(data/kintone/spaces/*/settings.json)",
+      "Edit(data/kintone/spaces/*/body.html)"
+    ],
+    "ask": [
+      "Bash(kint-origin:*)",
+      "PowerShell(kint-origin:*)",
+      "Edit(data/kintone/index/**)",
+      "Edit(data/kintone/plugin/installed.json)",
+      "Edit(data/kintone/deleted/**)",
+      "Edit(data/cybozu-common/**)",
+      "Edit(data/**/app.json)",
+      "Edit(data/kintone/spaces/*/space.json)",
+      "Edit(data/kintone/spaces/*/apps.json)",
+      "Edit(data/**/form/form.json)",
+      "Edit(data/**/records/**)",
+      "Edit(data/**/customize/plugins.json)",
+      "Edit(data/**/customize/customize.json)",
+      "Edit(data/**/customize/plugin-configs/**)",
+      "Edit(data/**/.kint-origin-pull.json)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.local)",
+      "Read(./.env.production)",
+      "Read(./.env.development)",
+      "Read(**/.env)",
+      "Read(**/.env.local)",
+      "Read(**/.env.production)",
+      "Read(**/.env.development)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash|PowerShell|Write|Edit|MultiEdit|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/.claude/hooks/kint-origin-guard.mjs\""
+          }
+        ]
+      }
+    ]
+  }
+}

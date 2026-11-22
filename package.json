@@ -1,0 +1,50 @@
+{
+  "name": "kint-origin-tools",
+  "version": "0.8.2",
+  "private": true,
+  "description": "Unofficial local TypeScript CLI to pull kintone / cybozu.com config into per-domain data repos, diff it against the live environment, and push local edits back",
+  "license": "MIT",
+  "keywords": [
+    "kintone",
+    "cybozu",
+    "cli",
+    "backup",
+    "configuration-management",
+    "ai-agents",
+    "claude-code"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "type": "module",
+  "files": [
+    "dist",
+    "template",
+    "SECURITY.md"
+  ],
+  "bin": {
+    "kint-origin": "dist/cli.js"
+  },
+  "scripts": {
+    "clean": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"",
+    "build": "npm run clean && tsc",
+    "prepare": "npm run build",
+    "test": "node scripts/smoke-test.mjs",
+    "smoke": "node scripts/smoke-test.mjs",
+    "agents:sync": "node scripts/sync-dev-agents.mjs",
+    "agents:check": "node scripts/sync-dev-agents.mjs --check && node scripts/check-agent-knowledge.mjs",
+    "agents:test": "node --test scripts/dev-agents.test.mjs scripts/agent-knowledge.test.mjs"
+  },
+  "dependencies": {
+    "@kintone/cli": "^1.22.3",
+    "csv-parse": "^7.0.3",
+    "csv-stringify": "^6.9.0"
+  },
+  "overrides": {
+    "qs": "^6.16.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "typescript": "^7.0.2"
+  }
+}

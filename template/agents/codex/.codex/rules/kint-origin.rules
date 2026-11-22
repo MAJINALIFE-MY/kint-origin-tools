@@ -1,0 +1,54 @@
+# Codex 実行ポリシー（kint-origin ドメインフォルダ用）。kint-origin のテンプレートから生成。最新化は `kint-origin update`。
+# - kint-origin push（app / create / space / records / import、-y の有無を問わない。records・import の --restore も含む）を、起動前にユーザー確認（prompt）にする。
+#   対象・kint-origin diff の結果・反映の影響・復旧方法・実行コマンドを確認し、その内容で反映してよければ許可する。
+#   -y 付きは CLI の y/N 確認を省略する。
+# - このファイルは、Codex でこのフォルダの .codex/ を信頼したときだけ読まれる。
+# - push の -y だけを別扱いにする prefix は、フラグの位置が決まらないため作らない。
+# - 先頭トークンが絶対パス（C:\...\kint-origin.cmd push ...）の呼び出しには一致しない。
+
+prefix_rule(
+    pattern = [["kint-origin", "kint-origin.cmd", "kint-origin.ps1"], "push"],
+    decision = "prompt",
+    justification = "kint-origin push は kintone へ反映します。対象・kint-origin diff の結果・反映の影響・復旧方法・実行コマンドを確認し、その内容で反映してよければ許可してください。-y 付きは CLI の確認を省略します。",
+    match = [
+        "kint-origin push app --id 303 -y",
+        "kint-origin push app --id 303",
+        "kint-origin push create --name 顧客管理 -y",
+        "kint-origin push space --id 26 -y",
+        "kint-origin push records --name 添付移行 -y",
+        "kint-origin push records --name 添付移行 --restore 20261103-101530",
+        "kint-origin push import --name 社員取込 -y",
+        "kint-origin push import --name 社員取込 --restore 20261103-101530",
+        "kint-origin.cmd push app --id 303",
+        "kint-origin.ps1 push app --id 303 -y",
+    ],
+    not_match = [
+        "kint-origin pull app --id 303",
+        "kint-origin diff app --id 303",
+        "kint-origin diff records --name 添付移行",
+        "kint-origin diff import --name 社員取込",
+        "kint-origin show records --id 303 --records 12",
+        "kint-origin policy",
+        "kint-origin pushapp --id 303",
+    ],
+)
+
+# update は、AGENTS.md・.codex/rules・hook などの配布ファイルを上書きする（独自の編集は失われる）。
+# -y なしの update は CLI が上書きされるファイルを示して y/N で確認するが、-y 付きは確認なしで上書きする。
+# フラグの位置（update -y / update --yes / update --force -y など）を問わず止めるため、update 全体を prompt にする。
+prefix_rule(
+    pattern = [["kint-origin", "kint-origin.cmd", "kint-origin.ps1"], "update"],
+    decision = "prompt",
+    justification = "kint-origin update は配布ファイル（AGENTS.md・.codex/rules など）を上書きします（-y 付きは確認なし）。独自の編集は失われます。承認する場合だけ許可してください。",
+    match = [
+        "kint-origin update",
+        "kint-origin update -y",
+        "kint-origin update --yes",
+        "kint-origin.cmd update -y",
+    ],
+    not_match = [
+        "kint-origin pull app --id 303",
+        "kint-origin policy",
+        "kint-origin updates",
+    ],
+)

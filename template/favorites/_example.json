@@ -1,0 +1,16 @@
+{
+  "description": "雛形（_ で始まるファイルは pull favorite の対象外。update で上書きされる）。favorites/<グループ名>.json にコピーして編集し、kint-origin pull favorite --name <グループ名> で取得する。apps=アプリID（ゲストアプリは索引から自動判定。索引に無いゲストアプリは {\"id\": アプリID, \"guestSpaceId\": ゲストスペースID}）、spaces=スペースID（配下の全アプリ）、guestSpaces=ゲストスペースID（配下の全アプリ）。",
+  "apps": [
+    303,
+    {
+      "id": 1188,
+      "guestSpaceId": 62
+    }
+  ],
+  "spaces": [
+    26
+  ],
+  "guestSpaces": [
+    10
+  ]
+}

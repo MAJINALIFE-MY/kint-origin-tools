@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "hooks": {
+    "beforeShellExecution": [
+      {
+        "command": "node .cursor/hooks/kint-origin-guard.mjs",
+        "failClosed": true
+      }
+    ],
+    "preToolUse": [
+      {
+        "command": "node .cursor/hooks/kint-origin-guard.mjs",
+        "matcher": "Write"
+      }
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "views": {
+    "すべて": {
+      "type": "LIST",
+      "name": "すべて",
+      "fields": ["会社名", "担当者名", "メモ"],
+      "filterCond": "",
+      "sort": "会社名 asc",
+      "index": "0"
+    }
+  },
+  "revision": "-"
+}

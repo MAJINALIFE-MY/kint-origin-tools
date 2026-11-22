@@ -1,0 +1,30 @@
+{
+  "properties": {
+    "会社名": {
+      "type": "SINGLE_LINE_TEXT",
+      "code": "会社名",
+      "label": "会社名",
+      "noLabel": false,
+      "required": true,
+      "unique": false,
+      "defaultValue": ""
+    },
+    "担当者名": {
+      "type": "SINGLE_LINE_TEXT",
+      "code": "担当者名",
+      "label": "担当者名",
+      "noLabel": false,
+      "required": false,
+      "defaultValue": ""
+    },
+    "メモ": {
+      "type": "MULTI_LINE_TEXT",
+      "code": "メモ",
+      "label": "メモ",
+      "noLabel": false,
+      "required": false,
+      "defaultValue": ""
+    }
+  },
+  "revision": "-"
+}

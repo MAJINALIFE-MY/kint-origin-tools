@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "skillMode": "link",
+  "skills": [
+    "kint-origin-development",
+    "kint-origin-validation",
+    "kint-origin-agent-config"
+  ],
+  "files": {}
+}

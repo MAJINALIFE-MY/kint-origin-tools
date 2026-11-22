@@ -1,0 +1,18 @@
+{
+  "description": "kint-origin: ドメイン独自のスキル・ルールを kint-origin-local- の名前で作らせる（kint-origin のテンプレートから生成。最新化は kint-origin update）",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "^apply_patch$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .codex/hooks/kint-origin-guard.mjs",
+            "timeout": 30,
+            "statusMessage": "kint-origin: スキル・ルールの名前を確認"
+          }
+        ]
+      }
+    ]
+  }
+}

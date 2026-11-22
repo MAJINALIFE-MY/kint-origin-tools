@@ -1,0 +1,18 @@
+{
+  "layout": [
+    {
+      "type": "ROW",
+      "fields": [
+        { "type": "SINGLE_LINE_TEXT", "code": "会社名", "size": { "width": "250" } },
+        { "type": "SINGLE_LINE_TEXT", "code": "担当者名", "size": { "width": "200" } }
+      ]
+    },
+    {
+      "type": "ROW",
+      "fields": [
+        { "type": "MULTI_LINE_TEXT", "code": "メモ", "size": { "width": "400", "innerHeight": "100" } }
+      ]
+    }
+  ],
+  "revision": "-"
+}
